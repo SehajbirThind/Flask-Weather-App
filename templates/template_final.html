@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>AccuCloud Weather App</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename = '/main.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename = '/weather-icons.css') }}">
+</head>
+
+<body>
+
+    <div class="parent">
+        <div class="heading">
+            <h1>Welcome to AccuCloud</h1>
+        </div>
+        <div id="cover">
+            <form method="POST">
+                <div class="tb">
+                    <div class="td"><input type="text" placeholder="Enter City" name="city" required></div>
+                    <div class="td" id="s-cover">
+                        <button type="submit" href="#">
+                            <div id="s-circle"></div>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="weather-panel">
+            <article class="media">
+                <div class="media-left">
+                    <figure class="image">
+                        <!--<img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image"> -->
+                        {% if weather.icon == "01d" %}
+                        <div class="icon sunny">
+                            <div class="sun">
+                                <div class="rays"></div>
+                            </div>
+                        </div>
+                        {% elif weather.icon == "02d" %}
+                        <div class="icon cloudy">
+                            <div class="cloud"></div>
+                            <div class="cloud"></div>
+                        </div>
+                        {% elif weather.icon == "03d" or weather.icon == "02n" or weather.icon == "03n" or weather.icon == "04n" %}
+                        <div class="icon cloudy">
+                            <div class="cloud"></div>
+                            <div class="cloud"></div>
+                        </div>
+                        {% elif weather.icon == "04d" %}
+                        <div class="icon cloudy">
+                            <div class="cloud"></div>
+                            <div class="cloud"></div>
+                        </div>
+                        {% elif weather.icon == "09d" or weather.icon == "09n" or weather.icon == "10n" %}
+                        <div class="icon rainy">
+                            <div class="cloud"></div>
+                            <div class="rain"></div>
+                        </div>
+
+                        {% elif weather.icon == "10d" %}
+                        <div class="icon sun-shower">
+                            <div class="cloud"></div>
+                            <div class="sun">
+                                <div class="rays"></div>
+                            </div>
+                            <div class="rain"></div>
+                        </div>
+                        {% elif weather.icon == "11d" or weather.icon == "11n" %}
+                        <div class="icon thunder-storm">
+                            <div class="cloud"></div>
+                            <div class="lightning">
+                                <div class="bolt"></div>
+                                <div class="bolt"></div>
+                            </div>
+                        </div>
+                        {% elif weather.icon == "13d" or weather.icon == "13n" %}
+                        <div class="icon flurries">
+                            <div class="cloud"></div>
+                            <div class="snow">
+                                <div class="flake"></div>
+                                <div class="flake"></div>
+                            </div>
+                        </div>
+                        {% elif weather.icon == "01n" %}
+                        <img src="{{url_for('static', filename = '/moon_new.png') }}" height=80 width=80>
+                        {%elif weather.icon == "50d" or weather.icon == "50n" %}
+                        <img src="{{url_for('static', filename = '/haze.png') }}" height=80 width=80>
+                        {% else %}
+                        <div class="icon cloudy">
+                            <div class="cloud"></div>
+                            <div class="cloud"></div>
+                        </div>
+                        {% endif %}
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            <br>
+                            <span class="title">{{ weather.city }}</span>
+                            <br><br>
+                            <span class="subtitle">{{ weather.temperature }}° C</span>
+                            <br><br>
+                            <span class="desc">{{ weather.description }}</span>
+                            <br>
+                            <br><br>
+
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
