@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-api_key = os.environ['API_KEY']
+app.api_key = os.environ['API_KEY']
 
 
 @app.route('/', methods=['GET', 'POST'])
