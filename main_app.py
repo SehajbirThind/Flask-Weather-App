@@ -4,8 +4,6 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-app.api_key = os.environ['API_KEY']
-
 
 @app.route('/', methods=['GET', 'POST'])
 def city_weather():
@@ -14,7 +12,9 @@ def city_weather():
     else:
         city_name = 'Mumbai'
 
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&APPID=%s' % (api_key)
+    api_key = os.environ['API_KEY']
+
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&APPID=%s' % api_key
     response = requests.get(url.format(city_name)).json()
 
     # dictionary containing weather details obtained from json file
