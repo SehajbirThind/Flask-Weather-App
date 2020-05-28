@@ -12,7 +12,7 @@ def city_weather():
     else:
         city_name = 'Mumbai'
 
-    api_key = os.environ['API_KEY']
+    api_key = os.environ['api_key']
 
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&APPID=%s' % api_key
     response = requests.get(url.format(city_name)).json()
