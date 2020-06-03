@@ -12,7 +12,7 @@ html, body
 body
 {
     margin: 0;
-    /*background-color:#0c2461;  */
+    background-color:black;
     background-image: url("bkg_image2.jpg");
     font-family: 'Raleway', sans-serif;
 
@@ -271,9 +271,7 @@ a:hover{
     color:black;
 }
 
-a:active{
-    color:black;
-}
+
 
 .git-image{
     margin: 10px auto 15px;
