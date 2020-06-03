@@ -21,7 +21,7 @@ def city_weather():
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&APPID=%s' % api_key
     response = requests.get(url.format(city_name)).json()
 
-    # Error - handling if invalid city name is entered:
+    # Error-handling if invalid city name is entered:
     if response['cod'] != 200:
         return render_template('template_final.html', weather=None)
     
