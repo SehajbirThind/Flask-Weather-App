@@ -34,6 +34,11 @@
                 <div class="media-left">
                     <figure class="image">
                         <!--<img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image"> -->
+                        {% if weather == None %}
+                        <img src="{{url_for('static', filename = '/failure_image.png') }}" height=90 width=90>
+                        <br><br><br>
+                        <span class="title">Weather data not available. Please try another city.</span>
+                        {% else %}
                         {% if weather.icon == "01d" %}
                         <div class="icon sunny">
                             <div class="sun">
@@ -95,26 +100,42 @@
                             <div class="cloud"></div>
                         </div>
                         {% endif %}
+                        {% endif %}
+
                     </figure>
                 </div>
                 <div class="media-content">
                     <div class="content">
                         <p>
                             <br>
-                            <span class="title">{{ weather.city }}</span>
+                            {% if weather != None %}
+                            <span class="title">{{ weather.city }}, {{ weather.country}}</span>
                             <br><br>
                             <span class="subtitle">{{ weather.temperature }}° C</span>
                             <br><br>
                             <span class="desc">{{ weather.description }}</span>
-                            <br>
                             <br><br>
-
+                            <span class="desc2">Local Time: {{ weather.time }}</span>
+                            <br>
+                            {% endif %}
                         </p>
                     </div>
                 </div>
             </article>
         </div>
+        <div class="end-section">
+            Made by: Sehajbir
+            <a class="end-link" href="https://github.com/SehajbirThind/Flask-Weather-App" target="_blank">
+                <img class="git-image" src="{{url_for('static', filename = '/GitHub-Mark-Light-64px.png') }}" height=30
+                    width=30>
+
+            </a>
+
+
+        </div>
     </div>
+    <br>
+
 
 
 

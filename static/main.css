@@ -18,7 +18,7 @@ body
 
     height: 100%;
 
-  /* Center and scale the image nicely */
+  
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -176,6 +176,10 @@ button span:before, button span:after
     background-color: #fff;
 }
 
+.parent{
+    text-align: center;
+}
+
 
 .heading{
     padding-top: 10px;
@@ -191,17 +195,19 @@ button span:before, button span:after
 .weather-panel{
     background-color: #192A56;
     width:500px;
-    height:300px;
-    position: absolute;
-    left:34%;
-    
-    top:45%;
+    height:350px;
+    position: absolute;  
+    transform: translate(-50%, -50%);
+    left:50%;  
+    /*display: inline-block; */
+    top:72%;   
     color:whitesmoke;
     text-align: center;
     padding-top:30px;
-    padding-bottom: 50px;
+    padding-bottom: 50px;  
     border-radius: 20px;
     font-size: 20px;
+    
     
 }
 
@@ -210,6 +216,8 @@ button span:before, button span:after
     font-weight: bold;
     font-variant: small-caps;
     font-family: 'Raleway', sans-serif;
+    color:whitesmoke;
+
 
 }
 
@@ -225,10 +233,49 @@ font-family: 'Raleway', sans-serif;
     font-family: 'Raleway', sans-serif;
 
 }
+.desc2{
+    font-size: 27px;
+    font-family: 'Raleway', sans-serif;
+
+}
 
 .image{
     color: #192A56;
     background-color: currentColor;
 }
 
+.end-section{
+    
+   position: absolute; 
+   bottom:3;
+   transform: translate(-50%, -50%);
+    left:50%;  
+    
+    top:110%;   
+    color:whitesmoke;
+   
+   text-align: center;
+   margin-bottom: 10px;
 
+}
+
+a:link{
+    color: #192A56;
+}
+
+a:visited{
+    color: #192A56
+}
+
+a:hover{
+    color:black;
+}
+
+a:active{
+    color:black;
+}
+
+.git-image{
+    margin: 10px auto 15px;
+    display: block;
+}
