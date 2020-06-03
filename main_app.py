@@ -14,7 +14,7 @@ def city_weather():
     if request.method == 'POST':
         city_name = request.form['city']
     else:
-        city_name = 'Mumbai'
+        city_name = 'Jalandhar'
 
     api_key = os.environ['api_key']
 
@@ -28,12 +28,13 @@ def city_weather():
     
     print(response)
 
-    # dictionary containing weather details obtained from json file
+   # time conversion for local time feature
     newtime = datetime.utcnow() + timedelta(hours = (response['timezone']/3600))
     format = ('%I:%M %p %Z')
+
+     # dictionary containing weather details obtained from json file
     weather = {
         'city': city_name,
-        'country' : response['sys']['country'],
         'time' : newtime.strftime(format),
         'temperature': response['main']['temp'],
         'description': response['weather'][0]['description'],
