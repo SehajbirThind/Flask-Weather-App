@@ -12,7 +12,7 @@ html, body
 body
 {
     margin: 0;
-    background-color:black;
+    background-color:black;  /* Background color changed to black for better experience on mobile version */
     background-image: url("bkg_image2.jpg");
     font-family: 'Raleway', sans-serif;
 
